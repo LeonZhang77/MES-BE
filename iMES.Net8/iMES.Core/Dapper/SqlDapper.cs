@@ -1,9 +1,8 @@
-﻿
-using Dapper;
+﻿using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -175,7 +174,7 @@ namespace iMES.Core.Dapper
         }
 
         /// <summary>
-        /// var p = new object();
+        ///  var p = new object();
         //        p.Add("@a", 11);
         //p.Add("@b", dbType: DbType.Int32, direction: ParameterDirection.Output);
         //p.Add("@c", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
@@ -364,7 +363,6 @@ namespace iMES.Core.Dapper
             }, beginTransaction);
         }
 
-
         public (List<T1>, List<T2>, List<T3>) QueryMultiple<T1, T2, T3>(string cmd, object param, CommandType? commandType = null, bool beginTransaction = false)
         {
             return Execute((conn, dbTransaction) =>
@@ -419,7 +417,6 @@ namespace iMES.Core.Dapper
             }, beginTransaction);
         }
 
-
         public (List<dynamic>, List<dynamic>, List<dynamic>) QueryDynamicMultiple3(string cmd, object param, CommandType? commandType = null, bool beginTransaction = false)
         {
             return Execute((conn, dbTransaction) =>
@@ -466,7 +463,7 @@ namespace iMES.Core.Dapper
                     );
                 }
             }, beginTransaction);
-        }
+        }   
 
         public async Task<(IEnumerable<T1>, IEnumerable<T2>, IEnumerable<T3>, IEnumerable<T4>)> QueryMultipleAsync<T1, T2, T3, T4>(string cmd, object param, CommandType? commandType = null, bool beginTransaction = false)
         {

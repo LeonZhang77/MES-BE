@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using iMES.Core.Configuration;
 using iMES.Core.Const;
 using iMES.Core.Dapper;
@@ -27,7 +28,7 @@ namespace iMES.Core.DBManager
             //系统库不用配置了，已经在appsetting.json中配置过了
           };
 
-        private static readonly string DefaultConnName = "default"; 
+        private static readonly string DefaultConnName = "default";
 
         static DBServerProvider()
         {
@@ -291,7 +292,5 @@ namespace iMES.Core.DBManager
                 return typeof(SysEntity).Name;
             }
         }
-
-
     }
 }
